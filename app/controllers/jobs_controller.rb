@@ -15,11 +15,9 @@ class JobsController < ApplicationController
   def create
     @job = Job.new(jobs_params)
 
-    if @job.save
+     @job.save
       redirect_to @job
-    else
-      render "New"
-    end
+
   end
 
   def edit
@@ -45,7 +43,7 @@ class JobsController < ApplicationController
 
   def jobs_params
 
-    params.require(:job).permit(:title, :description, :company, :url)
+    params.require(:job).permit(:title, :description, :company, :url, :category_id )
 
   end
 
